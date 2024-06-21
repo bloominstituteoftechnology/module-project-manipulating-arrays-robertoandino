@@ -139,7 +139,21 @@
     // 🧠 There are many ways to solve this, but practice using a while loop.
     // 🧠 Work out using pen and paper how the round number and the lifePoints change after each round.
     // 🧠 As long as there are lifePoints, decrease lifePoints by round number, and increase round number by one.
-    function fightMonsters() {
+    function fightMonsters(lifePoints) {
+
+      let points = 1;
+
+      while(lifePoints > 0){
+
+        lifePoints = lifePoints - points;
+
+        if(lifePoints > 0){
+          points++;
+        }
+
+      }
+
+      return `You died in round ${points}`;
 
     }
 
@@ -150,8 +164,22 @@
     // findEvenNums([0, 1, 2, 3, 4]) // should return [0, 2, 4]
     // ❗ Notes:
     // 🧠 Use any kind of loop you'd like and the push method to populate the array of even numbers.
-    function findEvenNums() {
+    function findEvenNums(arr) {
 
+      let newArray = [];
+      let x = 0;
+
+      for(let i = 0; i < arr.length; i++){
+
+        if(arr[i] % 2 === 0){
+          newArray[x] = arr[i];
+          x++;
+        }
+
+      }
+
+      return newArray;
+      
     }
 
     // 👉 CHALLENGE 6
@@ -161,7 +189,32 @@
     // 🧠 Ages in the subarrays should appear in the same order they appeared in the original array.
     // 🧠 Examples of usage:
     // separateAges([31, 12, 25, 65, 84, 20]) // should return [[12, 20], [31, 25, 65, 84]]
-    function separateAges() {
+    function separateAges(ages) {
+
+      let arr1 = [];
+      let x = 0;
+      let arr2 = [];
+      let y = 0;
+      let arr3 = [];
+
+      for(let i = 0; i < ages.length; i++){
+
+        if(ages[i] < 21){
+
+          arr1[x] = ages[i];
+          x++;
+
+        }else if(ages[i] >= 21){
+
+          arr2[y] = ages[i];
+          y++;
+
+        }
+
+      }
+
+      arr3 = [(arr1), (arr2)];
+      return arr3;
 
     }
 
@@ -172,7 +225,14 @@
     // 🧠 The "tail" prop contains an array holding the elements of the array after the first one.
     // 🧠 Examples of usage:
     // headAndTail([1, 2, 3]) // should return { head: 1, tail: [2, 3] }
-    function headAndTail() {
+    function headAndTail(arr) {
+
+      let obj = {};
+
+      obj.head = arr.shift();
+      obj.tail = arr;
+
+      return obj;
 
     }
 
@@ -183,7 +243,32 @@
     // nestedLoops(['hello', 'goodbye']) // should return ['hEllO', 'gOOdbyE']
     // ❗ Notes:
     // 🧠 To capitalize a string you can use its toUpperCase method: "a".toUpperCase() returns "A"
-    function nestedLoops() {
+    function nestedLoops(str) {
+
+      let str1 = [];
+
+      for(let i = 0; i < str.length; i++){
+        
+        let str2 = str[i];
+        let str3 = '';
+
+        for(let j = 0; j < str2.length; j++){
+        
+          if(str2[j] === 'a' || str2[j] === 'e' || str2[j] === 'i' || str2[j] === 'o' || str2[j] === 'u'){
+          
+            str3 += str2[j].toUpperCase();
+        
+          }else{
+            str3 += str2[j];
+          }
+        }
+
+        str1.push(str3);
+        
+      }
+
+      return str1;
+
 
     }
 
